@@ -1,0 +1,22 @@
+﻿,AUC
+node2vec,91.40 
+PhUSION (P),89.38 
+PaCEr (P),89.72 
+struc2vec,95.01 
+PhUSION (I),95.35 
+PaCEr (I),92.85 
+RandNE,94.24 
+LouvainNE,82.99 
+SketchNE,87.82 
+node2binary,89.79 
+S3GC,89.01 
+MAGI,93.89 
+GraLSP,94.95 
+DRSR,95.74 
+DGI,95.13 
+GraphMAE2,88.04
+GGD,95.89 
+E2Neg,95.10 
+PI-HIST (R),91.75 
+PI-HIST (A),95.46 
+PI-HIST (R&A),95.85 
