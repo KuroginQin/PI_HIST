@@ -18,29 +18,23 @@ Run the following commands to visualize main results.
 
 #### Proof-of-concept (Fig. 1)
 To visualize the example **topology** of **the Zachary's karate club network** (Fig. 1a)
-```
+```bash
 python vis_topo_karate.py
 ```
-To visualize the reduced embeddings of **node2vec** on the **Zachary's karate club network** (Fig. 1d)
-```
+To visualize the reduced embeddings of **node2vec** and **struc2vec** on the **Zachary's karate club network** (Fig. 1d-e)
+```bash
 python vis_node2vec_karate.py
-```
-To visualize the reduced embeddings of **struc2vec** on the **Zachary's karate club network** (Fig. 1e)
-```
 python vis_struc2vec_karate.py
 ```
-To visualize the reduced embeddings of **PI-HIST (R)** on **the Zachary's karate club network** (Fig. 1f)
-```
+To visualize the reduced embeddings of **PI-HIST (R)** and **PI-HIST (A)** on **the Zachary's karate club network** (Fig. 1f-g)
+```bash
 python vis_PI_HIST_R_karate.py
-```
-To visualize the reduced embeddings of **PI-HIST (A)** on **the Zachary's karate club network** (Fig. 1g)
-```
 python vis_PI_HIST_A_karate.py
 ```
 
 #### Node-level Evaluations (Fig. 2 and Supplementary Fig. S1)
 To visualize results of **node identity classification** (macro- and micro-F1) and **community detection** (modularity) on **Europe**,  **USA**, **Actor**, and **Film** (datasets with node identity ground-truth):
-```
+```bash
 python vis_NIG.py --data_name europe --qlt_lbl macro
 python vis_NIG.py --data_name europe --qlt_lbl micro
 python vis_NIG.py --data_name europe --qlt_lbl mod
@@ -58,7 +52,7 @@ python vis_NIG.py --data_name film --qlt_lbl micro
 python vis_NIG.py --data_name film --qlt_lbl mod
 ```
 To visualize results of **node position classification** (macro- and micro-F1) and **node identity clustering** (conductance) on **PPI** and **BlogCatalog** (small-scale datasets with node position ground-truth):
-```
+```bash
 python vis_NPG.py --data_name ppi --qlt_lbl macro
 python vis_NPG.py --data_name ppi --qlt_lbl micro
 python vis_NPG.py --data_name ppi --qlt_lbl cond
@@ -68,7 +62,7 @@ python vis_NPG.py --data_name blogcatalog --qlt_lbl micro
 python vis_NPG.py --data_name blogcatalog --qlt_lbl cond
 ```
 To visualize results of **node position classification** (macro- and micro-F1) and **node identity clustering** (conductance) on **DBLP** and **Amazon** (large-scale datasets with node position ground-truth):
-```
+```bash
 python vis_NPG_.py --data_name dblp --qlt_lbl macro
 python vis_NPG_.py --data_name dblp --qlt_lbl micro
 python vis_NPG_.py --data_name dblp --qlt_lbl cond
@@ -80,7 +74,7 @@ python vis_NPG_.py --data_name amazon --qlt_lbl cond
 
 #### Edge-level Evaluations (Fig. 3 ans Supplementary Fig. S2)
 To visualize results of **link prediction** (AUC) and **graph reconstruction** (AUC) on **Europe**, **USA**, **PPI**, **Actor**, **BlogCatalog**, and **Film** (small-scale real-world graphs):
-```
+```bash
 python vis_LPGR.py --data_name europe --task lp
 python vis_LPGR.py --data_name europe --task gr
 
@@ -100,7 +94,7 @@ python vis_LPGR.py --data_name film --task lp
 python vis_LPGR.py --data_name film --task gr
 ```
 To visualize results of **link prediction** (AUC) and **graph reconstruction** (AUC) on **DBLP** and **Amazon** (large-scale real-world graphs):
-```
+```bash
 python vis_LPGR_.py --data_name dblp --task lp
 python vis_LPGR_.py --data_name dblp --task gr
 
@@ -110,16 +104,16 @@ python vis_LPGR_.py --data_name amazon --task gr
 
 #### Graph-level Case studies (Fig. 4, Supplementary Fig. S3, and Supplementary Fig. S4)
 To visualize the **graph superfamily identification** results of **PI-HIST (R)** and **PI-HIST (A)** on **real-world graphs** (Fig. 4c):
-```
+```bash
 python vis_PI_HIST_R_GSIr.py --d 64 --L 5 --eps 0.9 --act relu --norm no
 python vis_PI_HIST_A_GSIr.py --d 64 --L 7 --eps 0.8 --act relu --norm no
 ```
 To visualize the **graph superfamily identification** result of **PI-HIST (R&A)** with $\alpha=0.9$ on **real-world graphs** (Fig. 4c):
-```
+```bash
 python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 0.9
 ```
 To visualize the **graph superfamily identification** results of **PI-HIST (R&A)** w.r.t. the remaining settings of $\alpha$ on **real-world graphs** (Supplementary Fig. S3a):
-```
+```bash
 python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 0.0
 python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 0.1
 python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 0.2
@@ -131,20 +125,24 @@ python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm n
 python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 0.8
 python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 1.0
 ```
-
-[TBD] baselines
-
-To visualize the **graph superfamily identification** results of **PI-HIST (R)** and **PI-HIST (A)** on **synthetic graphs** (Fig. 4d)
+To visualize the **graph superfamily identification** results of **BoD** (bag of degrees), **BoHD** (bag of high-order degrees), **SSP** (subgraph significance profile), and **CNS** (common neighbor signature) on **real-world graphs** (Supplementary Fig. S4b):
+```bash
+python vis_BoD_GSIr.py
+python vis_BoHD_GSIr.py
+python vis_SSP_GSIr.py
+python vis_CNS_GSIr.py
 ```
+To visualize the **graph superfamily identification** results of **PI-HIST (R)** and **PI-HIST (A)** on **synthetic graphs** (Fig. 4d)
+```bash
 python vis_PI_HIST_R_GSIs.py --d 64 --L 5 --eps 0.8 --act relu --norm no
 python vis_PI_HIST_A_GSIs.py --d 64 --L 6 --eps 0.5 --act relu --norm no
 ```
 To visualize the **graph superfamily identification** result of **PI-HIST (R&A)** with $\alpha=0.6$ on **synthetic graphs** (Fig. 4d):
-```
+```bash
 python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 0.6
 ```
 To visualize the **graph superfamily identification** results of **PI-HIST (R&A)** w.r.t. the remaining settings of $\alpha$ on **real-world graphs** (Supplementary Fig. S3b):
-```
+```bash
 python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 0.0
 python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 0.1
 python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 0.2
@@ -156,12 +154,17 @@ python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm n
 python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 0.9
 python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 1.0
 ```
-
-[TBD] baselines
+To visualize the **graph superfamily identification** results of **BoD**, **BoHD**, **SSP**, and **CNS** on **synthetic graphs** (Supplementary Fig. S4b):
+```bash
+python vis_BoD_GSIs.py
+python vis_BoHD_GSIs.py
+python vis_SSP_GSIs.py
+python vis_CNS_GSIs.py
+```
 
 #### Ablation Study & Parameter Analysis (Supplementary Fig. S5 and S6)
 To visualize the **ablation study and parameter analysis** results of **PI-HIST (R)** on **PPI** with node position ground-truth (Supplementary Fig. S5):
-```
+```bash
 python vis_PI_HIST_R_NPGp.py --data_name ppi --d 256 --act no --norm no
 python vis_PI_HIST_R_NPGp.py --data_name ppi --d 256 --act no --norm l2
 
@@ -182,7 +185,7 @@ python vis_PI_HIST_R_NPGp.py --data_name ppi --d 256 --act exp --norm l2
 python vis_PI_HIST_R_NPGp.py --data_name ppi --d 256 --act exp --norm z
 ```
 To visualize the **ablation study and parameter analysis** results of **PI-HIST (A)** on **USA** with node identity ground-truth (Supplementary Fig. S6):
-```
+```bash
 python vis_PI_HIST_A_NIGp.py --data_name usa --d 64 --act no --norm no
 python vis_PI_HIST_A_NIGp.py --data_name usa --d 64 --act no --norm l2
 
