@@ -105,9 +105,9 @@ if __name__ == '__main__':
 
     # ====================
     plt.tight_layout()
-    #plt.show()
-    plt.savefig('vis/PI-HIST(A)_NIGp_%s_act=%s_norm=%s.svg' % (data_name, act, norm),
-                format='svg',
-                bbox_inches='tight',
-                transparent=False)
+    plt.show()
+    #plt.savefig('vis/PI-HIST(A)_NIGp_%s_act=%s_norm=%s.svg' % (data_name, act, norm),
+    #            format='svg',
+    #            bbox_inches='tight',
+    #            transparent=False)
     plt.close()

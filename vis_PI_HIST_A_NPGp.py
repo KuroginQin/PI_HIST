@@ -1,5 +1,5 @@
-# Visualization for parameter analysis & ablation study of PI-HIST (R) on datasets w/ position ground-truth
-# Macro-F1 of node position classification on validation set
+# Visualization for parameter analysis & ablation study of PI-HIST (A) on datasets w/ position ground-truth
+# Conductance of node identity clustering
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     # ====================
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_name', type=str) # ppi
-    parser.add_argument('--d', type=int, default=64)
+    parser.add_argument('--d', type=int, default=64) # 256
     parser.add_argument('--norm', type=str, default='no') # no, l2, z
     parser.add_argument('--act', type=str, default='no') # no, tanh, sig, relu, exp
     args = parser.parse_args()
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     act = args.act
 
     # ====================
-    RW_len_list = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] # 16 choices
+    RW_len_list = [5, 6, 7, 8, 9]  # 5 choices
     y_lbl = []
     for RW_len in RW_len_list:
         if RW_len == 5:
@@ -46,14 +46,14 @@ if __name__ == '__main__':
     eps_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]  # 10 choices
     x_lbl = []
     for eps in eps_list:
-        if eps==0.0:
+        if eps == 0.0:
             x_lbl.append(r'$\varepsilon$=%.1f' % (eps))
         else:
             x_lbl.append('%.1f' % (eps))
 
     # ====================
     # Load save results (matrix form)
-    pkl_file = open('res/PI-HIST(R)_NPGp_ma_%s_d=%d_act=%s_norm=%s.pickle'
+    pkl_file = open('res/PI-HIST(A)_NPGp_cond_%s_d=%d_act=%s_norm=%s.pickle'
                     % (data_name, emb_dim, act, norm), 'rb')
     res = pickle.load(pkl_file)
     pkl_file.close()
@@ -66,7 +66,7 @@ if __name__ == '__main__':
                      cmap='YlGnBu',
                      annot=True, annot_kws={"size": 13},
                      cbar_kws={'shrink': 1.0},
-                     vmin=0, vmax=20,
+                     vmin=60, vmax=90,
                      fmt='.2f',
                      linewidth=.5,
                      xticklabels=x_lbl,
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     else:
         norm_txt = norm
 
-    t = (r'PI-HIST (R) on %s,$\psi_{\rm{act}}$=%s,$\psi_{\rm{norm}}$=%s,Macro-F1$\uparrow$(%%)'
+    t = (r'PI-HIST (A) on %s,$\psi_{\rm{act}}$=%s,$\psi_{\rm{norm}}$=%s,Cond$\downarrow$(%%)'
          % (data_name_map[data_name], act_txt, norm_txt))
     plt.title(t, fontsize=14, weight='bold', pad=15, loc='left')
 
@@ -106,9 +106,8 @@ if __name__ == '__main__':
     # ====================
     plt.tight_layout()
     plt.show()
-    #plt.savefig('vis/PI-HIST(R)_NPGp_%s_act=%s_norm=%s.svg' % (data_name, act, norm),
+    #plt.savefig('vis/PI-HIST(A)_NPGp_%s_act=%s_norm=%s.svg' % (data_name, act, norm),
     #            format='svg',
     #            bbox_inches='tight',
     #            transparent=False)
     plt.close()
-
