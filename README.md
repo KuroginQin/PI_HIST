@@ -16,7 +16,7 @@ TBD
 ### Visualizing Main Results
 The pre-computed results for the visualization have been placed in ```./res/```. The pre-computed embeddings and features for the visualization of graph-level case studies have been placed in ```./emb/```. Run the following commands to visualize results of experimental evaluations and case studies.
 
-#### Proof-of-concept (Fig. 1)
+#### **Proof-of-concept** (Fig. 1)
 To visualize the example **topology** of **the Zachary's karate club network** (Fig. 1a)
 ```bash
 python vis_topo_karate.py
@@ -34,7 +34,7 @@ python vis_PI_HIST_R_karate.py
 python vis_PI_HIST_A_karate.py
 ```
 
-#### Node-level Evaluations (Fig. 2 and Supplementary Fig. S1)
+#### **Node-level Evaluations** (Fig. 2 and Supplementary Fig. S1)
 To visualize results of **node identity classification** (macro- and micro-F1) and **community detection** (modularity) on **Europe**,  **USA**, **Actor**, and **Film** (datasets with node identity ground-truth):
 ```bash
 python vis_NIG.py --data_name europe --qlt_lbl macro
@@ -76,7 +76,7 @@ python vis_NPG_.py --data_name amazon --qlt_lbl micro
 python vis_NPG_.py --data_name amazon --qlt_lbl cond
 ```
 
-#### Edge-level Evaluations (Fig. 3 ans Supplementary Fig. S2)
+#### **Edge-level Evaluations** (Fig. 3 ans Supplementary Fig. S2)
 To visualize results of **link prediction** (AUC) and **graph reconstruction** (AUC) on **Europe**, **USA**, **PPI**, **Actor**, **BlogCatalog**, and **Film** (small-scale real-world graphs):
 ```bash
 python vis_LPGR.py --data_name europe --task lp
@@ -107,7 +107,7 @@ python vis_LPGR_.py --data_name amazon --task lp
 python vis_LPGR_.py --data_name amazon --task gr
 ```
 
-#### Graph-level Case studies (Fig. 4, Supplementary Fig. S3, and Supplementary Fig. S4)
+#### **Graph-level Case studies** (Fig. 4, Supplementary Fig. S3, and Supplementary Fig. S4)
 To visualize the **graph superfamily identification** results of **PI-HIST (R)** and **PI-HIST (A)** on **real-world graphs** (Fig. 4c):
 ```bash
 python vis_PI_HIST_R_GSIr.py --d 64 --L 5 --eps 0.9 --act relu --norm no
@@ -174,7 +174,7 @@ python vis_SSP_GSIs.py
 python vis_CNS_GSIs.py
 ```
 
-#### Ablation Study & Parameter Analysis (Supplementary Fig. S5， S6， S7, and S8)
+#### **Ablation Study and Parameter Analysis** (Supplementary Fig. S5， S6， S7, and S8)
 To visualize the **ablation study and parameter analysis** results of **PI-HIST (R)** on **PPI** with node position ground-truth (Supplementary Fig. S5):
 ```bash
 python vis_PI_HIST_R_NPGp.py --data_name ppi --d 256 --act no --norm no
@@ -270,22 +270,107 @@ The pre-processed real-world and synthetic graph datasets for node- and graph-le
 
 Download and extract the the [pre-processed real-world datasets](https://drive.google.com/file/d/1upLsGSdGFL9eDTdgC5iPYJKBgJ7XrOFu/view?usp=sharing) (~117MB) for edge-level tasks with split training and test sets. Place the extracted files in ```./data_LP/```.
 
-Download the pre-computed AW-induced hierarchical structures for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```
+Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```
 
-Download the pre-computed AW-induced hierarchical structures for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
+Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
 
 Generate AW-induced hierarchical structures from scratch
 
 ***
 ### Reproducing Main Results
 
-#### Node-level Evaluations
+#### **Node-level Evaluations**
+To conduct **node position classification** and **node identity clustering** for **PI-HIST (R)** on the second type of datasets with position ground-truth (i.e., **PPI**, **BlogCatalog**, **DBLP**, and **Amazon**):
+```bash
+python PI_HIST_R_NPG.py --data_name ppi --d 256 --L 10 --eps 0.2 --act tanh --norm no
+python PI_HIST_R_NPG.py --data_name blogcatalog --d 512 --L 6 --eps 0.1 --act no --norm no
+python PI_HIST_R_NPG_.py --data_name dblp --d 256 --L 20 --eps 0.0 --act tanh --norm z
+python PI_HIST_R_NPG_.py --data_name amazon --d 128 --L 20 --eps 0.1 --act tanh --norm no
+```
 
-#### Edge-level Evaluations
+To conduct **node identity classification** and **community detection** for **PI-HIST (R)** on the first type of datasets with identity ground-truth (i.e., **Europe**, **USA**, **Actor**, and **Film**):
+```bash
+python PI_HIST_R_NIG.py --data_name europe --d 64 --L 5 --eps 0.3 --act no --norm l2
+python PI_HIST_R_NIG.py --data_name usa --d 64 --L 10 --eps 0.7 --act no --norm l2
+python PI_HIST_R_NIG.py --data_name actor --d 256 --L 15 --eps 0.3 --act no --norm l2
+python PI_HIST_R_NIG.py --data_name film --d 256 --L 12 --eps 0.1 --act relu --norm l2
+```
 
-#### Graph-level Case studies
+To conduct **node identity classification** and **community detection** for **PI-HIST (A)** on the first type of datasets with identity ground-truth (i.e., **Europe**, **USA**, **Actor**, and **Film**):
+```bash
+python PI_HIST_A_NIG.py --data_name europe --d 64 --L 5 --eps 0.9 --act no --norm no --n 50000
+python PI_HIST_A_NIG.py --data_name usa --d 64 --L 5 --eps 0.3 --act tanh --norm z --n 50000
+python PI_HIST_A_NIG.py --data_name actor --d 256 --L 5 --eps 0.9 --act relu --norm no --n 50000
+python PI_HIST_A_NIG.py --data_name film --d 256 --L 7 --eps 0.4 --act relu --norm z --n 50000
+```
 
-#### Ablation Study and Parameter Analysis
+To conduct **node position classification** and **node identity clustering** for **PI-HIST (A)** on the second type of datasets with position ground-truth (i.e., **PPI**, **BlogCatalog**, **DBLP**, and **Amazon**):
+```bash
+python PI_HIST_A_NPG.py --data_name ppi --d 256 --L 8 --eps 0.6 --act sig --norm l2 --n 50000
+python PI_HIST_A_NPG.py --data_name blogcatalog --d 512 --L 8 --eps 0.7 --act relu --norm no --n 50000
+python PI_HIST_A_NPG_.py --data_name dblp --d 256 --L 8 --eps 0.0 --act relu --norm z --n 10000
+python PI_HIST_A_NPG_.py --data_name amazon --d 128 --L 7 --eps 0.1 --act relu --norm no --n 10000
+```
+
+Note that the pre-compute AW-induced hierarchical structures for **PI-HIST (A)** have been placed in ```AW_hier```. To pre-compute such hierarchical structures from scratch:
+```bash
+python PI_HIST_AW_hier.py --data_name europe --L 5 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name usa --L 5 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name actor --L 5 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name film --L 7 --n 50000 --np 10000
+python PI_HIST_AW_hier.py --data_name ppi --L 8 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name blogcatalog --L 8 --n 50000 --np 25000
+python PI_HIST_AW_hier.py --data_name dblp --L 8 --n 10000 --np 500
+python PI_HIST_AW_hier.py --data_name amazon --L 7 --n 10000 --np 500
+```
+
+To conduct **efficiency analysis** for **PI-HIST (R)** on all real-world graph datasets:
+```bash
+python PI_HIST_R_T.py --data_name europe --d 64 --L 5 --eps 0.3 --act no --norm l2
+python PI_HIST_R_T.py --data_name usa --d 64 --L 10 --eps 0.7 --act no --norm l2
+python PI_HIST_R_T.py --data_name actor --d 256 --L 15 --eps 0.3 --act no --norm l2
+python PI_HIST_R_T.py --data_name film --d 256 --L 12 --eps 0.1 --act relu --norm l2
+python PI_HIST_R_T.py --data_name ppi --d 256 --L 10 --eps 0.2 --act tanh --norm no
+python PI_HIST_R_T.py --data_name blogcatalog --d 512 --L 6 --eps 0.1 --act no --norm no
+python PI_HIST_R_T.py --data_name dblp --d 256 --L 20 --eps 0.0 --act tanh --norm z
+python PI_HIST_R_T.py --data_name amazon --d 128 --L 20 --eps 0.1 --act tanh --norm no
+```
+
+To conduct **efficiency analysis** for **AW-induced hierarchial structure extraction** of **PI-HIST (A)** on all real-world graph dataset:
+```bash
+python PI_HIST_AW_T.py --data_name europe --L 5 --n 50000 --np 50000
+python PI_HIST_AW_T.py --data_name usa --L 5 --n 50000 --np 50000
+python PI_HIST_AW_T.py --data_name actor --L 5 --n 50000 --np 50000
+python PI_HIST_AW_T.py --data_name film --L 7 --n 50000 --np 10000
+python PI_HIST_AW_T.py --data_name ppi --L 8 --n 50000 --np 50000
+python PI_HIST_AW_T.py --data_name blogcatalog --L 8 --n 50000 --np 25000
+python PI_HIST_AW_T.py --data_name dblp --L 8 --n 10000 --np 500
+python PI_HIST_AW_T.py --data_name amazon --L 7 --n 10000 --np 500
+```
+
+To conduct **efficiency analysis** for **training-free feedforward propagation** of **PI-HIST (A)** on all real-world graph datasets:
+```bash
+python PI_HIST_A_T.py --data_name europe --d 64 --L 5 --eps 0.9 --act no --norm no --n 50000
+python PI_HIST_A_T.py --data_name usa --d 64 --L 5 --eps 0.3 --act tanh --norm z --n 50000
+python PI_HIST_A_T.py --data_name actor --d 256 --L 5 --eps 0.9 --act relu --norm no --n 50000
+python PI_HIST_A_T.py --data_name film --d 256 --L 7 --eps 0.4 --act relu --norm z --n 50000
+python PI_HIST_A_T.py --data_name ppi --d 256 --L 8 --eps 0.6 --act sig --norm l2 --n 50000
+python PI_HIST_A_T.py --data_name blogcatalog --d 512 --L 8 --eps 0.7 --act relu --norm no --n 50000
+python PI_HIST_A_T.py --data_name dblp --d 256 --L 8 --eps 0.0 --act relu --norm z --n 10000
+python PI_HIST_A_T.py --data_name amazon --d 256 --L 7 --eps 0.0 --act relu --norm no --n 10000
+```
+
+#### **Edge-level Evaluations**
+[TBD]
+
+Note that the pre-compute AW-induced hierarchical structures for **PI-HIST (A)** have been placed in ```AW_hier_LP```. To pre-compute such hierarchical structures from scratch:
+
+#### **Graph-level Case studies**
+[TBD]
+
+Note that the pre-compute AW-induced hierarchical structures for **PI-HIST (A)** have been placed in ```AW_hier```. To pre-compute such hierarchical structures from scratch:
+
+#### **Ablation Study and Parameter Analysis**
 To conduct ablation study and parameter analysis for **PI-HIST (R)** on **PPI**:
 ```bash
 python PI_HIST_R_NPGp.py --data_name ppi --d 256 --act no --norm no
@@ -372,5 +457,4 @@ python PI_HIST_A_NPGp.py --data_name ppi --d 256 --act sig --norm z
 python PI_HIST_A_NPGp.py --data_name ppi --d 256 --act exp --norm no
 python PI_HIST_A_NPGp.py --data_name ppi --d 256 --act exp --norm l2
 python PI_HIST_A_NPGp.py --data_name ppi --d 256 --act exp --norm z
-
 ```
