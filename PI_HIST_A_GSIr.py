@@ -69,22 +69,22 @@ if __name__ == '__main__':
         num_nodes = num_nodes_list[t]
 
         # ====================
-        pkl_file = open('AW_stat_GSIR/AW_hier_bth_%s_L=%d_n=%d.pickle'
+        pkl_file = open('AW_hier/AW_hier_bth_%s_L=%d_n=%d.pickle'
                         % (data_name, RW_len, num_RWs), 'rb')
         bth_idxs = pickle.load(pkl_file)
         pkl_file.close()
         # ==========
-        pkl_file = open('AW_stat_GSIR/AW_hier_src_%s_L=%d_n=%d.pickle'
+        pkl_file = open('AW_hier/AW_hier_src_%s_L=%d_n=%d.pickle'
                         % (data_name, RW_len, num_RWs), 'rb')
         src_idxs = pickle.load(pkl_file)
         pkl_file.close()
         # ==========
-        pkl_file = open('AW_stat_GSIR/AW_hier_dst_%s_L=%d_n=%d.pickle'
+        pkl_file = open('AW_hier/AW_hier_dst_%s_L=%d_n=%d.pickle'
                         % (data_name, RW_len, num_RWs), 'rb')
         dst_idxs = pickle.load(pkl_file)
         pkl_file.close()
         # ==========
-        pkl_file = open('AW_stat_GSIR/AW_hier_vals_%s_L=%d_n=%d.pickle'
+        pkl_file = open('AW_hier/AW_hier_vals_%s_L=%d_n=%d.pickle'
                         % (data_name, RW_len, num_RWs), 'rb')
         vals = pickle.load(pkl_file)
         pkl_file.close()

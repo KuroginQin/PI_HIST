@@ -58,19 +58,19 @@ if __name__ == '__main__':
 
     # ====================
     # Load pre-computed AW-induced hier struc
-    pkl_file = open('GSI_res/AW_hier_bth_LFR_L=%d.pickle' % (RW_len), 'rb')
+    pkl_file = open('AW_hier/AW_hier_bth_LFR_L=%d.pickle' % (RW_len), 'rb')
     bth_idxs_list = pickle.load(pkl_file)
     pkl_file.close()
     # ==========
-    pkl_file = open('GSI_res/AW_hier_src_LFR_L=%d.pickle' % (RW_len), 'rb')
+    pkl_file = open('AW_hier/AW_hier_src_LFR_L=%d.pickle' % (RW_len), 'rb')
     src_idxs_list = pickle.load(pkl_file)
     pkl_file.close()
     # ==========
-    pkl_file = open('GSI_res/AW_hier_dst_LFR_L=%d.pickle' % (RW_len), 'rb')
+    pkl_file = open('AW_hier/AW_hier_dst_LFR_L=%d.pickle' % (RW_len), 'rb')
     dst_idxs_list = pickle.load(pkl_file)
     pkl_file.close()
     # ==========
-    pkl_file = open('GSI_res/AW_hier_vals_LFR_L=%d.pickle' % (RW_len), 'rb')
+    pkl_file = open('AW_hier/AW_hier_vals_LFR_L=%d.pickle' % (RW_len), 'rb')
     vals_list = pickle.load(pkl_file)
     pkl_file.close()
 

@@ -268,9 +268,9 @@ python vis_PI_HIST_A_NPGp.py --data_name ppi --d 256 --act exp --norm z
 ### Preparing Data
 The pre-processed real-world and synthetic graph datasets for node- and graph-level tasks have been placed in ```./data/```. The generation process of synthetic graphs can be checked in ```./LFR_syn_gen.py```.
 
-Download and extract the the [pre-processed real-world datasets](https://drive.google.com/file/d/1upLsGSdGFL9eDTdgC5iPYJKBgJ7XrOFu/view?usp=sharing) (~117MB) for edge-level tasks with split training and test sets. Place the extracted files in ```./data_LP/```.
+Download and extract the [pre-processed real-world datasets](https://drive.google.com/file/d/1upLsGSdGFL9eDTdgC5iPYJKBgJ7XrOFu/view?usp=sharing) (~117MB) for edge-level tasks with split for multiple runs. Place the extracted files in ```./data_LP/```.
 
-Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```
+Download the [pre-computed AW-induced hierarchical structures](https://drive.google.com/file/d/1NU5SPUfoIAxNmoadroDMPpeH1TFVAx8m/view?usp=sharing) (~951MB) for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```
 
 Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
 
@@ -360,7 +360,39 @@ python PI_HIST_A_T.py --data_name amazon --d 256 --L 7 --eps 0.0 --act relu --no
 ```
 
 #### **Edge-level Evaluations**
-[TBD]
+To conduct **link prediction** for **PI-HIST (R)** on all the real graph datasets:
+```bash
+python PI_HIST_R_LP.py --data_name europe --d 64 --L 5 --eps 0.0 --act relu --norm z
+python PI_HIST_R_LP.py --data_name usa --d 64 --L 5 --eps 0.5 --act relu --norm z
+python PI_HIST_R_LP.py --data_name ppi --d 256 --L 5 --eps 0.6 --act relu --norm z
+python PI_HIST_R_LP.py --data_name actor --d 256 --L 5 --eps 0.7 --act relu --norm z
+python PI_HIST_R_LP.py --data_name blogcatalog --d 512 --L 5 --eps 0.0 --act relu --norm z
+python PI_HIST_R_LP.py --data_name film --d 256 --L 5 --eps 0.6 --act relu --norm z
+python PI_HIST_R_LP.py --data_name dblp --d 256 --L 5 --eps 0.7 --act exp --norm z
+python PI_HIST_R_LP.py --data_name amazon --d 128 --L 5 --eps 0.6 --act exp --norm z
+```
+To conduct **link prediction** for **PI-HIST (A)** on all the real graph datasets:
+```bash
+python PI_HIST_A_LP.py --data_name europe --d 64 --L 7 --eps 0.2 --act sig --norm z --n 50000
+python PI_HIST_A_LP.py --data_name usa --d 64 --L 8 --eps 0.9 --act relu --norm z --n 50000
+python PI_HIST_A_LP.py --data_name ppi --d 256 --L 8 --eps 0.5 --act tanh --norm z --n 50000
+python PI_HIST_A_LP.py --data_name actor --d 256 --L 6 --eps 0.3 --act relu --norm z --n 50000
+python PI_HIST_A_LP.py --data_name blogcatalog --d 512 --L 5 --eps 0.3 --act relu --norm z --n 50000
+python PI_HIST_A_LP.py --data_name film --d 256 --L 6 --eps 0.4 --act relu --norm z --n 50000
+python PI_HIST_A_LP.py --data_name dblp --d 256 --L 5 --eps 0.8 --act relu --norm z --n 10000
+python PI_HIST_A_LP.py --data_name amazon --d 128 --L 5 --eps 0.6 --act exp --norm z --n 10000
+```
+To conduct **link prediction** for **PI-HIST (R&A)** on all the real graph datasets:
+```bash
+python PI_HIST_RA_LP.py --data_name europe --d 64 --P_L 5 --P_eps 0.0 --P_act relu --P_norm z --I_L 7 --I_eps 0.2 --I_act sig --I_norm z --n 50000
+python PI_HIST_RA_LP.py --data_name usa --d 64 --P_L 5 --P_eps 0.5 --P_act relu --P_norm z --I_L 8 --I_eps 0.9 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_LP.py --data_name ppi --d 256 --P_L 5 --P_eps 0.6 --P_act relu --P_norm z --I_L 8 --I_eps 0.5 --I_act tanh --I_norm z --n 50000
+python PI_HIST_RA_LP.py --data_name actor --d 256 --P_L 5 --P_eps 0.7 --P_act relu --P_norm z --I_L 6 --I_eps 0.3 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_LP.py --data_name blogcatalog --d 512 --P_L 5 --P_eps 0.0 --P_act relu --P_norm z --I_L 5 --I_eps 0.3 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_LP.py --data_name film --d 256 --P_L 5 --P_eps 0.6 --P_act relu --P_norm z --I_L 6 --I_eps 0.4 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_LP.py --data_name dblp --d 256 --P_L 5 --P_eps 0.7 --P_act exp --P_norm z --I_L 5 --I_eps 0.8 --I_act relu --I_norm z --n 10000
+python PI_HIST_RA_LP.py --data_name amazon --d 128 --P_L 5 --P_eps 0.6 --P_act exp --P_norm z --I_L 5 --I_eps 0.6 --I_act exp --I_norm z --n 10000
+```
 
 To conduct **graph reconstruction** for **PI-HIST (R)** on all the real graph datasets:
 ```bash
