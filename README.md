@@ -274,7 +274,6 @@ Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST 
 
 Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
 
-Generate AW-induced hierarchical structures from scratch
 
 ***
 ### Reproducing Main Results
@@ -363,12 +362,81 @@ python PI_HIST_A_T.py --data_name amazon --d 256 --L 7 --eps 0.0 --act relu --no
 #### **Edge-level Evaluations**
 [TBD]
 
+To conduct **graph reconstruction** for **PI-HIST (R)** on all the real graph datasets:
+```bash
+python PI_HIST_R_GR.py --data_name europe --d 64 --L 5 --eps 0.0 --act relu --norm z
+python PI_HIST_R_GR.py --data_name usa --d 64 --L 5 --eps 0.5 --act relu --norm z
+python PI_HIST_R_GR.py --data_name ppi --d 256 --L 7 --eps 0.7 --act exp --norm z
+python PI_HIST_R_GR.py --data_name actor --d 256 --L 6 --eps 0.8 --act exp --norm z
+python PI_HIST_R_GR.py --data_name blogcatalog --d 512 --L 5 --eps 0.0 --act tanh --norm z
+python PI_HIST_R_GR.py --data_name film --d 256 --L 5 --eps 0.8 --act exp --norm z
+python PI_HIST_R_GR.py --data_name dblp --d 256 --L 5 --eps 0.5 --act relu --norm z
+python PI_HIST_R_GR.py --data_name amazon --d 128 --L 6 --eps 0.0 --act tanh --norm z
+```
+To conduct **graph reconstruction** for **PI-HIST (A)** on all the real graph datasets:
+```bash
+python PI_HIST_A_GR.py --data_name europe --d 64 --L 8 --eps 0.2 --act relu --norm z --n 50000
+python PI_HIST_A_GR.py --data_name usa --d 64 --L 6 --eps 0.3 --act relu --norm z --n 50000
+python PI_HIST_A_GR.py --data_name ppi --d 256 --L 8 --eps 0.3 --act relu --norm z --n 50000
+python PI_HIST_A_GR.py --data_name actor --d 256 --L 7 --eps 0.3 --act relu --norm z --n 50000
+python PI_HIST_A_GR.py --data_name blogcatalog --d 512 --L 5 --eps 0.3 --act relu --norm z --n 50000
+python PI_HIST_A_GR.py --data_name film --d 256 --L 5 --eps 0.9 --act relu --norm z --n 50000
+python PI_HIST_A_GR.py --data_name dblp --d 256 --L 6 --eps 0.2 --act relu --norm z --n 10000
+python PI_HIST_A_GR.py --data_name amazon --d 128 --L 7 --eps 0.2 --act relu --norm z --n 10000
+```
+To conduct **graph reconstruction** for **PI-HIST (R&A)** on all the real graph datasets:
+```bash
+python PI_HIST_RA_GR.py --data_name europe --d 64 --P_L 5 --P_eps 0.0 --P_act relu --P_norm z --I_L 8 --I_eps 0.2 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_GR.py --data_name usa --d 64 --P_L 5 --P_eps 0.5 --P_act relu --P_norm z --I_L 6 --I_eps 0.3 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_GR.py --data_name ppi --d 256 --P_L 7 --P_eps 0.7 --P_act exp --P_norm z --I_L 8 --I_eps 0.3 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_GR.py --data_name actor --d 256 --P_L 6 --P_eps 0.8 --P_act exp --P_norm z --I_L 7 --I_eps 0.3 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_GR.py --data_name blogcatalog --d 512 --P_L 5 --P_eps 0.0 --P_act tanh --P_norm z --I_L 5 --I_eps 0.3 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_GR.py --data_name film --d 256 --P_L 5 --P_eps 0.8 --P_act exp --P_norm z --I_L 5 --I_eps 0.9 --I_act relu --I_norm z --n 50000
+python PI_HIST_RA_GR.py --data_name dblp --d 256 --P_L 5 --P_eps 0.5 --P_act relu --P_norm z --I_L 6 --I_eps 0.2 --I_act relu --I_norm z --n 10000
+python PI_HIST_RA_GR.py --data_name amazon --d 128 --P_L 6 --P_eps 0.0 --P_act tanh --P_norm z --I_L 7 --I_eps 0.2 --I_act relu --I_norm z --n 10000
+```
+
 Note that the pre-compute AW-induced hierarchical structures for **PI-HIST (A)** have been placed in ```AW_hier_LP```. To pre-compute such hierarchical structures from scratch:
 
-#### **Graph-level Case studies**
-[TBD]
+#### **Graph-level Case Studies**
+To pre-compute **PI-HIST (R)** and **PI-HIST (A) embeddings** for **graph superfamily identification** on **real graphs**:
+```bash
+python PI_HIST_R_GSIr.py --d 64 --L 5 --eps 0.9 --act relu --norm no
+python PI_HIST_A_GSIr.py --d 64 --L 7 --eps 0.8 --act relu --norm no
+```
+To check (i.e., visualize) results of **PI-HIST (R)**, **PI-HIST (A)**, and **PI-HIST (R&A)** on **real graphs**:
+```bash
+python vis_PI_HIST_R_GSIr.py --d 64 --L 5 --eps 0.9 --act relu --norm no
+python vis_PI_HIST_A_GSIr.py --d 64 --L 7 --eps 0.8 --act relu --norm no
+python vis_PI_HIST_RA_GSIr.py --d 64 --P_L 5 --P_eps 0.9 --P_act relu --P_norm no --I_L 7 --I_eps 0.8 --I_act relu --I_norm no --alpha 0.9
+```
+Note that the pre-computed **AW-induced hierarchical structures** for **PI-HIST (A)** have been placed in ```./AW_hier/```. To pre-compute such **hierarchical structures** from scratch:
+```bash
+python PI_HIST_AW_hier.py --data_name europe --L 7 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name usa --L 7 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name actor --L 7 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name film --L 7 --n 50000 --np 10000
+python PI_HIST_AW_hier.py --data_name ppi --L 7 --n 50000 --np 50000
+python PI_HIST_AW_hier.py --data_name blogcatalog --L 7 --n 50000 --np 25000
+python PI_HIST_AW_hier.py --data_name dblp --L 7 --n 20000 --np 500
+python PI_HIST_AW_hier.py --data_name amazon --L 7 --n 20000 --np 500
+```
 
-Note that the pre-compute AW-induced hierarchical structures for **PI-HIST (A)** have been placed in ```AW_hier```. To pre-compute such hierarchical structures from scratch:
+To pre-compute **PI-HIST (R)** and **PI-HIST (A) embeddings** for **graph superfamily identification** on **synthetic graphs**:
+```bash
+python PI_HIST_R_GSIs.py --d 64 --L 5 --eps 0.8 --act relu --norm no
+python PI_HIST_A_GSIs.py --d 64 --L 6 --eps 0.5 --act relu --norm no
+```
+To check (i.e., visualize) results of **PI-HIST (R)**, **PI-HIST (A)**, and **PI-HIST (R&A)** on **synthetic graphs**:
+```bash
+python vis_PI_HIST_R_GSIs.py --d 64 --L 5 --eps 0.8 --act relu --norm no
+python vis_PI_HIST_A_GSIs.py --d 64 --L 6 --eps 0.5 --act relu --norm no
+python vis_PI_HIST_RA_GSIs.py --d 64 --P_L 5 --P_eps 0.8 --P_act relu --P_norm no --I_L 6 --I_eps 0.5 --I_act relu --I_norm no --alpha 0.6
+```
+Note that the pre-computed **AW-induced hierarchical structures** for **PI-HIST (A)** have been placed in ```./AW_hier/```. To pre-compute such **hierarchical structures** from scratch:
+```bash
+python PI_HIST_AW_GSIs.py --L 6 --n 10000 --np 10000
+```
 
 #### **Ablation Study and Parameter Analysis**
 To conduct ablation study and parameter analysis for **PI-HIST (R)** on **PPI**:
