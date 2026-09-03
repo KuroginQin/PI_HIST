@@ -14,7 +14,7 @@ import gc
 import argparse
 import random
 import pickle
-#import timeit
+import timeit
 from utils import *
 
 def setup_seed(seed):
@@ -293,7 +293,7 @@ if __name__ == '__main__':
     # ====================
     for alpha in alpha_list:
         # ====================
-        print('PI-HIST (P&I) d=%d P_L=%d P_eps=%.1f P_act=%s P_norm=%s '
+        print('PI-HIST(R&A) d=%d P_L=%d P_eps=%.1f P_act=%s P_norm=%s '
               'I_L=%d I_eps=%.1f I_act=%s I_norm=%s alpha=%f'
               % (emb_dim, pos_RW_len, pos_eps, pos_act, pos_norm,
                  ide_RW_len, ide_eps, ide_act, ide_norm, alpha))

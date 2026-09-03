@@ -287,7 +287,7 @@ def get_AW_hier(rows, cols, vals, RW_len, AW_list, device='cuda'):
 if __name__ == '__main__':
     # ====================
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data_name', type=str) # europe, usa, actor, film
+    parser.add_argument('--data_name', type=str) # europe, usa, actor, film, ppi, blogcatalog, film, dblp, amazon
     parser.add_argument('--L', type=int, default=7) # 5, 6, 7, 8, 9
     parser.add_argument('--n', type=int, default=50000) # Number of RWs per node
     parser.add_argument('--np', type=int, default=50000) # Number of RWs per node in each iteration

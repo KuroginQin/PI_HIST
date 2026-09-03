@@ -272,7 +272,7 @@ Download and extract the [pre-processed real-world datasets](https://drive.googl
 
 Download the [pre-computed AW-induced hierarchical structures](https://drive.google.com/file/d/1NU5SPUfoIAxNmoadroDMPpeH1TFVAx8m/view?usp=sharing) (~951MB) for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```
 
-Download the pre-computed AW-induced hierarchical structures (~XGB) for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
+Download the [pre-computed AW-induced hierarchical structures](https://drive.google.com/file/d/1kUSFObCxoW8QYVfXmEwS3sGDAUrcsAFh/view?usp=sharing) (~416MB) for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
 
 
 ***
@@ -429,6 +429,16 @@ python PI_HIST_RA_GR.py --data_name amazon --d 128 --P_L 6 --P_eps 0.0 --P_act t
 ```
 
 Note that the pre-compute AW-induced hierarchical structures for **PI-HIST (A)** have been placed in ```AW_hier_LP```. To pre-compute such hierarchical structures from scratch:
+```bash
+python PI_HIST_AW_hier_LP.py --data_name europe --L 7 --n 50000 --np 50000
+python PI_HIST_AW_hier_LP.py --data_name usa --L 8 --n 50000 --np 50000
+python PI_HIST_AW_hier_LP.py --data_name ppi --L 8 --n 50000 --np 50000
+python PI_HIST_AW_hier_LP.py --data_name actor --L 6 --n 50000 --np 50000
+python PI_HIST_AW_hier_LP.py --data_name blogcatalog --L 5 --n 50000 --np 50000
+python PI_HIST_AW_hier_LP.py --data_name film --L 6 --n 50000 --np 10000
+python PI_HIST_AW_hier_LP.py --data_name dblp --L 5 --n 10000 --np 1000
+python PI_HIST_AW_hier_LP.py --data_name amazon --L 5 --n 10000 --np 1000
+```
 
 #### **Graph-level Case Studies**
 To pre-compute **PI-HIST (R)** and **PI-HIST (A) embeddings** for **graph superfamily identification** on **real graphs**:
