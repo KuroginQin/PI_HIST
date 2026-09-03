@@ -268,9 +268,9 @@ python vis_PI_HIST_A_NPGp.py --data_name ppi --d 256 --act exp --norm z
 ### Preparing Data
 The pre-processed real-world and synthetic graph datasets for node- and graph-level tasks have been placed in ```./data/```. The generation process of synthetic graphs can be checked in ```./LFR_syn_gen.py```.
 
-Download and extract the [pre-processed real-world datasets](https://drive.google.com/file/d/1upLsGSdGFL9eDTdgC5iPYJKBgJ7XrOFu/view?usp=sharing) (~117MB) for edge-level tasks with split for multiple runs. Place the extracted files in ```./data_LP/```.
+Download and extract the [pre-processed real-world datasets](https://drive.google.com/file/d/1upLsGSdGFL9eDTdgC5iPYJKBgJ7XrOFu/view?usp=sharing) (~117MB) for edge-level tasks with split for multiple runs. Place the extracted files in ```./data_LP/```. Details about the data split can be checked in ```./LP_data_prep.py``` and ```./GR_data_prep.py```.
 
-Download the [pre-computed AW-induced hierarchical structures](https://drive.google.com/file/d/1NU5SPUfoIAxNmoadroDMPpeH1TFVAx8m/view?usp=sharing) (~951MB) for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```
+Download the [pre-computed AW-induced hierarchical structures](https://drive.google.com/file/d/1NU5SPUfoIAxNmoadroDMPpeH1TFVAx8m/view?usp=sharing) (~951MB) for PI-HIST (A) on node- and graph-level tasks. Place the extracted files in ```./AW_hier/```.
 
 Download the [pre-computed AW-induced hierarchical structures](https://drive.google.com/file/d/1kUSFObCxoW8QYVfXmEwS3sGDAUrcsAFh/view?usp=sharing) (~416MB) for PI-HIST (A) on edge-level tasks. Place the extracted files in ```./AW_hier_LP/```.
 
