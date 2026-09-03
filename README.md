@@ -9,7 +9,34 @@ TBD
 If you have any questions regarding this repository, you can contact the author via [mengqin_az@foxmail.com].
 
 ### Requirements
-TBD
+- numpy
+- scipy
+- scikit-learn
+- networkx
+- pytorch
+- pytorch_cluster
+- numba
+- pandas
+- matplotlib
+- seaborn
+- adjustText
+
+To install the experiment environment:
+```bash
+conda create -n pi_hist python=3.11 -y
+conda activate pi_hist
+
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+pip install torch_scatter torch_sparse torch_cluster -f https://data.pyg.org/whl/torch-2.11.0+cu128.html
+pip install torch_geometric -f https://data.pyg.org/whl/torch-2.11.0+cu128.html
+
+conda install -c nvidia cuda-toolkit=12.8 -y
+conda install -c conda-forge numba -y
+conda install -c conda-forge libstdcxx-ng gcc gxx_linux-64
+
+pip install "numpy<2.3" numba==0.61.2 scikit-learn==1.6.1 networkx==3.4.2 \
+    scipy==1.15.2 matplotlib==3.10.0 seaborn==0.13.2 pandas==2.2.3 adjustText==1.3.0
+```
 
 ### Usage
 ***
