@@ -8,7 +8,27 @@ TBD
 
 If you have any questions regarding this repository, you can contact the author via [mengqin_az@foxmail.com].
 
-### Requirements
+### Outline
+- [Topology-induced Operators Reveal Complementary Graph Representations without Training](#topology-induced-operators-reveal-complementary-graph-representations-without-training)
+    - [Abstract](#abstract)
+    - [Citing](#citing)
+    - [Outline](#outline)
+    - [Requirements and Environment Installation](#requirements-and-environment-installation)
+    - [Usage](#usage)
+    - [Visualizing Main Results](#visualizing-main-results)
+      - [**Proof-of-concept** (Fig. 1)](#proof-of-concept-fig-1)
+      - [**Node-level Evaluations** (Fig. 2 and Supplementary Fig. S1)](#node-level-evaluations-fig-2-and-supplementary-fig-s1)
+      - [**Edge-level Evaluations** (Fig. 3 ans Supplementary Fig. S2)](#edge-level-evaluations-fig-3-ans-supplementary-fig-s2)
+      - [**Graph-level Case studies** (Fig. 4, Supplementary Fig. S3, and Supplementary Fig. S4)](#graph-level-case-studies-fig-4-supplementary-fig-s3-and-supplementary-fig-s4)
+      - [**Ablation Study and Parameter Analysis** (Supplementary Fig. S5， S6， S7, and S8)](#ablation-study-and-parameter-analysis-supplementary-fig-s5-s6-s7-and-s8)
+    - [Preparing Data](#preparing-data)
+    - [Reproducing Main Results](#reproducing-main-results)
+      - [**Node-level Evaluations**](#node-level-evaluations)
+      - [**Edge-level Evaluations**](#edge-level-evaluations)
+      - [**Graph-level Case Studies**](#graph-level-case-studies)
+      - [**Ablation Study and Parameter Analysis**](#ablation-study-and-parameter-analysis)
+
+### Requirements and Environment Installation
 - numpy
 - scipy
 - scikit-learn
